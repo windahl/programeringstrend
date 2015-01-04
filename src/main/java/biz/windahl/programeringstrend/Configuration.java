@@ -1,18 +1,19 @@
 package biz.windahl.programeringstrend;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.dropwizard.db.DataSourceFactory;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 public class Configuration extends io.dropwizard.Configuration {
 
-    private String version;
-
+    @Valid
+    @NotNull
     @JsonProperty
-    public String getVersion() {
-        return version;
-    }
+    private DataSourceFactory database = new DataSourceFactory();
 
-    @JsonProperty
-    public void setVersion(String version) {
-        this.version = version;
+    public DataSourceFactory getDataSourceFactory() {
+        return database;
     }
 }

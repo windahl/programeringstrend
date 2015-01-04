@@ -1,1 +1,5 @@
-version: 0.1
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user:
+  password:
+  url: jdbc:mysql://192.168.1.107/programeringstrend
