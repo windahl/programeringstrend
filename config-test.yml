@@ -2,4 +2,4 @@ database:
   driverClass: org.h2.Driver
   user: trend
   password: trend
-  url: jdbc:h2:./programeringstrend
+  url: jdbc:h2:./programeringstrend;MV_STORE=FALSE
