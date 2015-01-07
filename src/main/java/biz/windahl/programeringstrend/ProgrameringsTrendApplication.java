@@ -1,5 +1,6 @@
 package biz.windahl.programeringstrend;
 
+import biz.windahl.programeringstrend.db.TrendDAO;
 import biz.windahl.programeringstrend.resource.AdminResource;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
@@ -22,18 +23,14 @@ public class ProgrameringsTrendApplication extends Application<Configuration> {
             public DataSourceFactory getDataSourceFactory(Configuration configuration) {
                 return configuration.getDataSourceFactory();
             }
-
-          /*  @Override
-            public FlywayFactory getFlywayFactory(Configuration configuration) {
-                return configuration.getFlywayFactory();
-            }*/
         });
     }
 
     @Override
     public void run(Configuration configuration, Environment environment) throws Exception {
         final DBIFactory factory = new DBIFactory();
-        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "MySql");
+        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "db");
+        TrendDAO dao = jdbi.onDemand(TrendDAO.class);
         environment.jersey().register(new AdminResource());
     }
 }
