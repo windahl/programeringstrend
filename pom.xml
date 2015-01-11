@@ -125,4 +125,8 @@
         <url>https://github.com/windahl/programeringstrend.git</url>
         <tag>HEAD</tag>
     </scm>
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.org/windahl/programeringstrend</url>
+    </ciManagement>
 </project>
